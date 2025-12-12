@@ -1,0 +1,23 @@
+{
+  "name": "MCP Home Assistant Bridge",
+  "version": "1.0.0",
+  "slug": "mcp_ha_bridge",
+  "description": "Bridge between ChatGPT MCP and Home Assistant services",
+  "arch": ["aarch64", "armv7", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+    "8001/tcp": 8001
+  },
+  "map": ["config"],
+  "options": {
+    "ha_token": "",
+    "ha_url": "http://homeassistant.local:8123",
+    "exposed_entities": []
+  },
+  "schema": {
+    "ha_token": "str",
+    "ha_url": "str",
+    "exposed_entities": ["str"]
+  }
+}
