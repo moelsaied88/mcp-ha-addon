@@ -29,7 +29,15 @@ def mcp_command():
     entity = body.get("entity")
     data = body.get("data", {})
 
-    if entity not in EXPOSED:
+    # Determine if all entities should be exposed
+    expose_all = (not EXPOSED) or (EXPOSED == [""]) or ("*" in EXPOSED)
+
+    # Block alarm devices
+    if entity.startswith("alarm_control_panel"):
+        return jsonify({"error": "Alarm devices are not exposed"}), 403
+
+    # Enforce whitelist if not exposing all
+    if not expose_all and entity not in EXPOSED:
         return jsonify({"error": "Entity not exposed"}), 403
 
     domain, service = action.split(".")
