@@ -1,6 +1,6 @@
 {
   "name": "MCP Home Assistant Bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "mcp_ha_bridge",
   "description": "Bridge between ChatGPT MCP and Home Assistant services",
   "arch": ["aarch64", "armv7", "amd64", "i386"],
